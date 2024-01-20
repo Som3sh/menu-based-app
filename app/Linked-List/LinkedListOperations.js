@@ -13,48 +13,54 @@ class LinkedList {
   }
 
   append(data) {
-    const newNode = new Node(data);
+    // Function to append data to the list
+    const newNode = new Node(data); // Creates a new node
     if (!this.head) {
+      // Checks if the list is empty
       this.head = newNode;
       return;
     }
-    let current = this.head;
+    let current = this.head; // Sets the current node to the head
     while (current.next) {
       current = current.next;
     }
-    current.next = newNode;
+    current.next = newNode; // Inserts the new node at the end of the list
   }
 
   prepend(data) {
-    const newNode = new Node(data, this.head);
-    this.head = newNode;
+    // Function to prepend data to the list
+    const newNode = new Node(data, this.head); // Creates a new node
+    this.head = newNode; // Sets the head to the new node
   }
 
   delete(data) {
-    if (!this.head) return;
+    if (!this.head) return; // Checks if the list is empty
 
     if (this.head.data === data) {
-      this.head = this.head.next;
+      // Checks if the data is in the head
+      this.head = this.head.next; // Sets the head to the next node
       return;
     }
 
-    let current = this.head;
+    let current = this.head; // Sets the current node to the head
     while (current.next && current.next.data !== data) {
-      current = current.next;
+      // Checks if the next node is not null and the data is not in the next node
+      current = current.next; // Sets the current node to the next node
     }
 
     if (current.next) {
-      current.next = current.next.next;
+      // Checks if the next node is not null
+      current.next = current.next.next; // Sets the next node to the node after the next node
     }
   }
 
   find(data) {
     let current = this.head;
     while (current) {
-      if (current.data === data) return true;
-      current = current.next;
+      if (current.data === data) return true; // Checks if the data is in the current node
+      current = current.next; // Sets the current node to the next node
     }
-    return false;
+    return false; // Returns false if the data is not found
   }
 
   display() {

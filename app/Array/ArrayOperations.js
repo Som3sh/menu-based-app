@@ -14,14 +14,18 @@ function menu() {
 }
 function createArray(callback) {
   rl.question("Enter the maximum size of the array: ", function (size) {
-    var arraySize = parseInt(size);
-    var arr = [];
+    // reads the size of the array
+    var arraySize = parseInt(size); // Takes the size of the array and converts it to an integer
+    var arr = []; // Creates an empty array
     var insertElement = function (index) {
+      // Function to insert elements into the array
       if (index < arraySize) {
+        // Checks if the index is less than the size of the array
         rl.question(
-          "Enter element ".concat(index + 1, ": "),
+          "Enter element ".concat(index + 1, ": "), // Reads the element to be inserted
           function (element) {
-            arr.push(parseInt(element));
+            // Callback function
+            arr.push(parseInt(element)); // Inserts the element into the array
             insertElement(index + 1);
           }
         );
@@ -33,13 +37,17 @@ function createArray(callback) {
   });
 }
 function insertElement(arr, callback) {
+  // Function to insert an element into the array
   rl.question(
-    "Enter the index where you want to insert the element: ",
+    "Enter the index where you want to insert the element: ", // Reads the index where the element is to be inserted
     function (index) {
+      // Callback function
       rl.question("Enter the element to be inserted: ", function (element) {
-        var idx = parseInt(index);
+        // Reads the element to be inserted
+        var idx = parseInt(index); // Converts the index to an integer
         if (idx >= 0 && idx <= arr.length) {
-          arr.splice(idx, 0, parseInt(element));
+          // Checks if the index is valid
+          arr.splice(idx, 0, parseInt(element)); // Inserts the element into the array
         } else {
           console.log("Invalid index.");
         }
@@ -49,28 +57,32 @@ function insertElement(arr, callback) {
   );
 }
 function deleteElement(arr, callback) {
+  // Function to delete an element from the array
   rl.question("Enter the element to be deleted: ", function (element) {
-    var index = arr.indexOf(parseInt(element));
+    // Reads the element to be deleted
+    var index = arr.indexOf(parseInt(element)); // Finds the index of the element
     if (index > -1) {
-      arr.splice(index, 1);
+      // Checks if the element is present in the array
+      arr.splice(index, 1); // Deletes the element from the array
     } else {
-      console.log("Element not found in the array.");
+      console.log("Element not found in the array."); // Displays a message if the element is not found
     }
     callback(arr);
   });
 }
 function searchElement(arr) {
   rl.question("Enter the element to search for: ", function (element) {
-    var index = arr.indexOf(parseInt(element));
+    // Reads the element to be searched
+    var index = arr.indexOf(parseInt(element)); // Finds the index of the element
     if (index > -1) {
-      console.log("Element found at index: ".concat(index));
+      console.log("Element found at index: ".concat(index)); // Displays the index of the element
     } else {
       console.log("Element not found in the array.");
     }
   });
 }
 function displayArray(arr) {
-  console.log("Array: ", arr);
+  console.log("Array: ", arr); // Displays the array
 }
 
 function main() {

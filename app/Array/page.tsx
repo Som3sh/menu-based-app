@@ -28,12 +28,12 @@ function LinkedList() {
 
   return (
     <div className=" items-center">
-      <div className=" pt-10 pl-[36rem]">
-        <div className="max-h-[500px] overflow-auto pb-10 w-3/5 border border-white">
+      <div className=" pt-10 pl-[30rem]">
+        <div className="max-h-[500px] overflow-auto pb-10 w-3/5 border border-white bg-black">
           <CodeDisplay code={sampleCode} />
         </div>
       </div>
-      <div className=" items-center pl-[25rem]">
+      <div className=" items-center pl-[20rem]">
         <iframe
           src="https://www.programiz.com/javascript/online-compiler/"
           className=" h-[600px] w-[1000px] pt-10 pb-10 items-center "

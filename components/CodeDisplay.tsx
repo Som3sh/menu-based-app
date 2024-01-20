@@ -23,7 +23,7 @@ const CodeDisplay: React.FC<CodeDisplayProps> = ({ code }) => {
   };
 
   return (
-    <div className="flex flex-row space-x-6 bg-black">
+    <div className="flex flex-row space-x-6">
       <button
         className=" items-start pb-4 pt-4 fixed text-white"
         onClick={handleCopy}
